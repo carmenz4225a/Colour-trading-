@@ -1,90 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Color Trading Site</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            padding: 2rem;
-        }
-        .color-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            text-align: center;
-            overflow: hidden;
-        }
-        .color-box {
-            height: 100px;
-        }
-        .card-body {
-            padding: 1rem;
-        }
-        .btn {
-            background: #333;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Color Trading Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+    .color-card {
+      display: inline-block;
+      width: 150px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .color-box {
+      height: 100px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .card-content {
+      padding: 10px;
+    }
+    .trade-btn {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .trade-btn.traded {
+      background-color: gray;
+      cursor: default;
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <header>
     <h1>Color Trading Platform</h1>
     <p>Buy, Sell, or Trade Unique Colors</p>
-</header>
+  </header>
 
-<div class="container">
+  <div id="color-list">
     <div class="color-card">
-        <div class="color-box" style="background-color: #ff5733;"></div>
-        <div class="card-body">
-            <h3>Sunset Flame</h3>
-            <p>Code: #ff5733</p>
-            <button class="btn">Trade</button>
-        </div>
+      <div class="color-box" style="background-color: #ff5733;"></div>
+      <div class="card-content">
+        <h3>Sunset Flame</h3>
+        <p>Code: #ff5733</p>
+        <button class="trade-btn" onclick="tradeColor(this, 'Sunset Flame')">Trade</button>
+      </div>
     </div>
 
     <div class="color-card">
-        <div class="color-box" style="background-color: #33c4ff;"></div>
-        <div class="card-body">
-            <h3>Ocean Blue</h3>
-            <p>Code: #33c4ff</p>
-            <button class="btn">Trade</button>
-        </div>
+      <div class="color-box" style="background-color: #33c4ff;"></div>
+      <div class="card-content">
+        <h3>Ocean Blue</h3>
+        <p>Code: #33c4ff</p>
+        <button class="trade-btn" onclick="tradeColor(this, 'Ocean Blue')">Trade</button>
+      </div>
     </div>
 
     <div class="color-card">
-        <div class="color-box" style="background-color: #8e44ad;"></div>
-        <div class="card-body">
-            <h3>Purple Dream</h3>
-            <p>Code: #8e44ad</p>
-            <button class="btn">Trade</button>
-        </div>
+      <div class="color-box" style="background-color: #8e44ad;"></div>
+      <div class="card-content">
+        <h3>Purple Dream</h3>
+        <p>Code: #8e44ad</p>
+        <button class="trade-btn" onclick="tradeColor(this, 'Purple Dream')">Trade</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Add more colors as needed -->
-</div>
+  <script>
+    function tradeColor(button, colorName) {
+      if (button.classList.contains("traded")) return;
 
+      alert("You traded " + colorName + "!");
+      button.textContent = "Traded";
+      button.classList.add("traded");
+      button.disabled = true;
+    }
+  </script>
 </body>
 </html>
