@@ -1,1 +1,47 @@
+let selectedColor = "";
+let selectedNumber = null;
+let results = [];
 
+function join(color) {
+  selectedColor = color;
+}
+
+function selectNumber(num) {
+  selectedNumber = num;
+}
+
+function generateResult() {
+  const num = Math.floor(Math.random() * 10);
+  let color = num % 2 === 0 ? 'green' : 'red';
+  if (num === 5) color = 'violet';
+
+  results.unshift({ number: num, color: color });
+  if (results.length > 10) results.pop();
+  updateResults();
+}
+
+function updateResults() {
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+  results.forEach(result => {
+    const div = document.createElement("div");
+    div.classList.add(`${result.color}-result`);
+    div.textContent = result.number;
+    resultsDiv.appendChild(div);
+  });
+}
+
+function startTimer() {
+  let time = 15;
+  const timerDiv = document.getElementById("timer");
+  setInterval(() => {
+    time--;
+    if (time <= 0) {
+      generateResult();
+      time = 15;
+    }
+    timerDiv.textContent = `00:${time.toString().padStart(2, '0')}`;
+  }, 1000);
+}
+
+startTimer();
