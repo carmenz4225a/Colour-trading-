@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Trading Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+        .color-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+            overflow: hidden;
+        }
+        .color-box {
+            height: 100px;
+        }
+        .card-body {
+            padding: 1rem;
+        }
+        .btn {
+            background: #333;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Color Trading Platform</h1>
+    <p>Buy, Sell, or Trade Unique Colors</p>
+</header>
+
+<div class="container">
+    <div class="color-card">
+        <div class="color-box" style="background-color: #ff5733;"></div>
+        <div class="card-body">
+            <h3>Sunset Flame</h3>
+            <p>Code: #ff5733</p>
+            <button class="btn">Trade</button>
+        </div>
+    </div>
+
+    <div class="color-card">
+        <div class="color-box" style="background-color: #33c4ff;"></div>
+        <div class="card-body">
+            <h3>Ocean Blue</h3>
+            <p>Code: #33c4ff</p>
+            <button class="btn">Trade</button>
+        </div>
+    </div>
+
+    <div class="color-card">
+        <div class="color-box" style="background-color: #8e44ad;"></div>
+        <div class="card-body">
+            <h3>Purple Dream</h3>
+            <p>Code: #8e44ad</p>
+            <button class="btn">Trade</button>
+        </div>
+    </div>
+
+    <!-- Add more colors as needed -->
+</div>
+
+</body>
+</html>
